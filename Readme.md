@@ -1,13 +1,13 @@
-DigisparkKeyboard library with multiple layout support
-======================================================
+Arduino Keyboard library with multiple layout support
+=====================================================
  
-Based on DigisparkKeyboard library
+Based on Arduino Keyboard library 1.0.1
 
-This library allows an Digispark board with Attiny85 act as a Keyboard.
+This library allows an Arduino board with USB capabilites to act as a Keyboard.
 
-For more information about this boards visit http://digistump.com/category/1
+For more information about this library please visit http://www.arduino.cc/en/Reference/Keyboard
 
-Modified by Ernesto Sanchez to support multiple keyboard layouts
+Modified by Ernesto Sanchez to support multiple keyboard layout 
 
 Supported layouts:
 * be_be
@@ -22,7 +22,7 @@ Supported layouts:
 * pt_pt
 * tr_tr
 
-__NOTE:__ Only en_us and es_es are tested at july 2017. 
+__NOTE:__ Only en_us and es_es are tested at june 2017. 
 
 Download and installation
 =========================
@@ -31,7 +31,7 @@ Download and installation
 
 Use
 ===
-To configure the keyboard layout it just add #define kbd_lang after #include "DigiKeyboard.h"
+To configure the keyboard layout it just add #define kbd_lang after #include <Keyboard.h>
 
 Example:
 ```
@@ -58,7 +58,8 @@ Version History
 ===============
 ```
 (Date format: DD/MM/YYYY)
-* 8/7/2017 First commit
+* 8/7/2017  Fix backslash problem in es_es.h
+* 14/6/2017 First commit
 
 ```
 
