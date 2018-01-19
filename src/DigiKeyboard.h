@@ -16,6 +16,8 @@
 #include "usbdrv.h"
 //#include "scancode-ascii-table.h"
 
+#define kbd_es_es
+
 #ifdef kbd_be_be
 #include "digi_be_be.h"
 #endif
@@ -245,6 +247,9 @@ class DigiKeyboardDevice : public Print {
     if (data & 0x40) {		// it's an altgr (ALT_RIGHT) character
         tmpmodifiers |= 0x40;	// set the altgr modifier
         data &= 0x3F;
+    }
+    if (data==0x03) {
+        data=0x64;
     }
     sendKeyStroke(data,tmpmodifiers);
 //End by
