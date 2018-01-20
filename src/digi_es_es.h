@@ -61,9 +61,9 @@ const unsigned char ascii_to_scan_code_table[] PROGMEM = {
   0x26,          // 9
   0x37|SHIFT,      // :
   0x36|SHIFT,      // ;
-  0x3F,            // < //KEY_NON_US_100
+  0x03,            // < //KEY_NON_US_100
   0x27|SHIFT,      // =
-  0x3F|SHIFT,      // > //KEY_NON_US_100 + SHIFT
+  0x03|SHIFT,      // > //KEY_NON_US_100 + SHIFT
   0x2d|SHIFT,      // ?
   0x1f|ALTGR,      // @
   0x04|SHIFT,      // A
