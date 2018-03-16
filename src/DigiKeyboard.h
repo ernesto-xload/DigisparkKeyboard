@@ -16,7 +16,7 @@
 #include "usbdrv.h"
 //#include "scancode-ascii-table.h"
 
-#define kbd_es_es
+//#define kbd_es_es
 
 #ifdef kbd_be_be
 #include "digi_be_be.h"
@@ -235,25 +235,50 @@ class DigiKeyboardDevice : public Print {
     
     usbSetInterrupt(reportBuffer, sizeof(reportBuffer));
   }
-  
   size_t write(uint8_t chr) {
-    uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + (chr - 8));
-//By ernesto
-    uint8_t tmpmodifiers=0;
-    if (data & 0x80) {		// it's a capital letter or other character reached with shift
-        tmpmodifiers |= 0x02;	// set the left shift modifier
-        data &= 0x7F;
+	uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + (chr - 8));
+	
+	uint8_t tmpmodifiers=0;
+	
+	if(chr == '<') {
+      sendKeyStroke(100);
     }
-    if (data & 0x40) {		// it's an altgr (ALT_RIGHT) character
-        tmpmodifiers |= 0x40;	// set the altgr modifier
-        data &= 0x3F;
+    else if(chr == '>') {
+      sendKeyStroke(100, MOD_SHIFT_RIGHT);
     }
-    if (data==0x03) {
-        data=0x64;
+	else if(chr == '|') {
+      sendKeyStroke(100, MOD_ALT_RIGHT);
     }
-    sendKeyStroke(data,tmpmodifiers);
-//End by
-//    sendKeyStroke(data & 0b01111111, data >> 7 ? MOD_SHIFT_RIGHT : 0); //comented by esanchez
+    else
+    {
+      sendKeyStroke(data & 0b00111111, data >> 7 ? MOD_SHIFT_RIGHT : 0 | (data << 1) >> 7 ? MOD_ALT_RIGHT : 0);
+    }
+    
+    return 1;
+  }
+  size_t write2(uint8_t chr) {
+	if(chr == 'ı') {
+      sendKeyStroke(51, KEY_I);
+    }
+	else {
+		uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + (chr - 8));
+		uint8_t tmpmodifiers=0;
+		
+		if (data & 0x80) {		// it's a capital letter or other character reached with shift
+			tmpmodifiers |= 0x02;	// set the left shift modifier
+			data &= 0x7F;
+		}
+		if (data & 0x40) {		// it's an altgr (ALT_RIGHT) character
+			tmpmodifiers |= 0x40;	// set the altgr modifier
+			data &= 0x3F;
+		}
+		if (data==0x03) {
+			data=0x64;
+		}
+		
+		sendKeyStroke(data,tmpmodifiers);
+		sendKeyStroke(data & 0b01111111, data >> 7 ? MOD_SHIFT_RIGHT : 0);
+	}
     return 1;
   }
     
