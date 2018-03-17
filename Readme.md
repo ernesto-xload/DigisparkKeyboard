@@ -24,7 +24,7 @@ Supported layouts:
 * it_it
 * pt_pt
 
-__NOTE1:__ Only en_us and es_es are tested at july 2017. 
+__NOTE1:__ Only en_us and es_es are tested at july 2017.
 __NOTE2:__ tr_tr tested at March 2018. The result is perfect.
 
 Download and installation
@@ -75,4 +75,6 @@ TO DO
 Contact
 =======
 Open an issue, ask me on twitter to [@ernesto_xload](http://www.twitter.com/ernesto_xload/) or visit www.sanchezpano.info
-Open an issue, ask me on twitter to [@MrKoykiran](https://twitter.com/MrKoykiran/) or visit www.muminkoykiran.com
+
+Turkish implemented and tested by:
+[@MrKoykiran](https://twitter.com/MrKoykiran/) or visit www.muminkoykiran.com
