@@ -9,7 +9,10 @@ For more information about this boards visit http://digistump.com/category/1
 
 Modified by Ernesto Sanchez to support multiple keyboard layouts
 
+Modified by Mümin Köykıran to support Turkish keyboard layouts 
+
 Supported layouts:
+* tr_tr
 * be_be
 * cz_cz
 * da_dk
@@ -20,14 +23,15 @@ Supported layouts:
 * fr_fr
 * it_it
 * pt_pt
-* tr_tr
 
-__NOTE:__ Only en_us and es_es are tested at july 2017. 
+__NOTE1:__ Only en_us and es_es are tested at july 2017. 
+__NOTE2:__ tr_tr tested at March 2018. The result is perfect.
 
 Download and installation
 =========================
 - Click "Clone or download" -> "Download ZIP"
 - Unzip downloaded file in Arduino/libraries/ directory
+- Maybe you need to use this directory (C:\Users\Mümin Köykıran\AppData\Local\Arduino15\packages\digistump\hardware\avr\1.6.7\libraries\) in your PC
 
 Use
 ===
@@ -35,11 +39,12 @@ To configure the keyboard layout it just add #define kbd_lang after #include "Di
 
 Example:
 ```
-#define kbd_es_es
+#define kbd_tr_tr
 #include "DigiKeyboard.h"
 ```
 
 You can use:
+* kbd_tr_tr
 * kbd_be_be
 * kbd_cz_cz
 * kbd_da_dk
@@ -50,7 +55,6 @@ You can use:
 * kbd_fr_fr
 * kbd_it_it
 * kbd_pt_pt
-* kbd_tr_tr
 
 If none is especified en_us is used by default.
 
@@ -65,9 +69,10 @@ Version History
 TO DO
 =====
 - Test all layouts
-- Implement a solution for extended ascii characters
+- Implement a solution for extended ascii characters for all layouts
 
 
 Contact
 =======
 Open an issue, ask me on twitter to [@ernesto_xload](http://www.twitter.com/ernesto_xload/) or visit www.sanchezpano.info
+Open an issue, ask me on twitter to [@MrKoykiran](https://twitter.com/MrKoykiran/) or visit www.muminkoykiran.com

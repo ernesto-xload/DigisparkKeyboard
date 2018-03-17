@@ -9,20 +9,12 @@
 #define ALTGR 0x40
 
 const unsigned char ascii_to_scan_code_table[] PROGMEM = {
-  0x00,             // NUL
-  0x00,             // SOH
-  0x00,             // STX
-  0x00,             // ETX
-  0x00,             // EOT
-  0x00,             // ENQ
-  0x00,             // ACK
-  0x00,             // BEL
   0x2a,      // BS  Backspace
   0x2b,      // TAB  Tab
   0x28,      // LF  Enter
   0x00,             // VT
   0x00,             // FF
-  0x00,             // CR
+  0x38,             // CR
   0x00,             // SO
   0x00,             // SI
   0x00,             // DEL
@@ -41,12 +33,11 @@ const unsigned char ascii_to_scan_code_table[] PROGMEM = {
   0x00,             // GS
   0x00,             // RS
   0x00,             // US
-
-  0x2c,          //  ' '
+  0x2c,          //  ' ' (space)
   0x1e|SHIFT,    // !
   0x35,          // "
-  0x20,          // #
-  0x21,          // $
+  0x20|ALTGR,    // #
+  0x21|ALTGR,    // $
   0x22|SHIFT,    // %
   0x23|SHIFT,    // &
   0x1f|SHIFT,    // '
@@ -68,13 +59,13 @@ const unsigned char ascii_to_scan_code_table[] PROGMEM = {
   0x24,          // 7
   0x25,          // 8
   0x26,          // 9
-  0x38|SHIFT,    // :
-  0x31|SHIFT,    // ;
-  0x64,          // <
+  0x38|SHIFT,      // :
+  0x31|SHIFT,      // ;
+  0x35|ALTGR,      // < //KEY_NON_US_100
   0x27|SHIFT,      // =
-  0x64|SHIFT,      // >
+  0x03|SHIFT,      // > //KEY_NON_US_100 + SHIFT
   0x2d|SHIFT,      // ?
-  0x14,            // @
+  0x14|ALTGR,      // @
   0x04|SHIFT,      // A
   0x05|SHIFT,      // B
   0x06|SHIFT,      // C
@@ -101,12 +92,12 @@ const unsigned char ascii_to_scan_code_table[] PROGMEM = {
   0x1b|SHIFT,      // X
   0x1c|SHIFT,      // Y
   0x1d|SHIFT,      // Z
-  0x25,          // [
-  0x2d,          // bslash
-  0x26,          // ]
-  0x20|SHIFT,    // ^
-  0x2e|SHIFT,    // _
-  0x35,          // ` //DOES NOT WORK
+  0x25|ALTGR,      // [
+  0x32,      // bslash 
+  0x26|ALTGR,      // ]
+  0x20|SHIFT,      // ^
+  0x2e|SHIFT,      // _
+  0x31|ALTGR, 	       // `
   0x04,          // a
   0x05,          // b
   0x06,          // c
@@ -133,9 +124,143 @@ const unsigned char ascii_to_scan_code_table[] PROGMEM = {
   0x1b,          // x
   0x1c,          // y
   0x1d,          // z
-  0x24,          // {
-  0x64,    	 // |
-  0x27,    	 // }
-  0x30,    	 // ~
-  0        	 // DEL
+  0x24|ALTGR,    // {
+  0x66,          // |
+  0x27|ALTGR,    // }
+  0x30|ALTGR,    // ~
+  0x00,          // DEL
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x37|SHIFT,    // Ç
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x36|SHIFT,    // Ö
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x30|SHIFT,    // Ü
+  0x00,          // 
+  0x00,          // 0x14|ALTGR // Ş fakat konudu bilmiyorum
+  0x00,          // ğ için fakat bunu kullanınca ş yerinde bğ yazıyor o yüzden kullanamayıp başka bulacağım
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x37,          // ç
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x34|SHIFT,    // İ
+  0x0c,          // ı
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x36,          // ö
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x30,          // ü
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x33|SHIFT,    // Ş
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+  0x00,          // 
+
 };
