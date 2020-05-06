@@ -33,6 +33,9 @@
 #ifdef kbd_es_es
 #include "digi_es_es.h"
 #endif
+#ifdef kbd_es_la
+#include "digi_es_la.h"
+#endif
 #ifdef kbd_fi_fi
 #include "digi_fi_fi.h"
 #endif
