@@ -23,33 +23,47 @@
 #endif
 #ifdef kbd_cz_cz
 #include "digi_cz_cz.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_da_dk
 #include "digi_da_dk.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_de_de
 #include "digi_de_de.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_es_es
 #include "digi_es_es.h"
+#define LANG_SWITCH 0
+#endif
+#ifdef kbd_es_la
+#include "digi_es_la.h"
+#define LANG_SWITCH 6
 #endif
 #ifdef kbd_fi_fi
 #include "digi_fi_fi.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_fr_fr
 #include "digi_fr_fr.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_it_it
 #include "digi_it_it.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_pt_pt
 #include "digi_pt_pt.h"
+#define LANG_SWITCH 0
 #endif
 #ifdef kbd_tr_tr
 #include "digi_tr_tr.h"
+#define LANG_SWITCH 0
 #endif
 #ifndef _kbd_lang
 #include "digi_en_us.h"
+#define LANG_SWITCH 0
 #endif
 
 // TODO: Work around Arduino 12 issues better.
@@ -172,10 +186,7 @@ class DigiKeyboardDevice : public Print {
     usbDeviceDisconnect();
     _delay_ms(250);
     usbDeviceConnect();
-
-
-    usbInit();
-      
+    usbInit();      
     sei();
 
     // TODO: Remove the next two lines once we fix
@@ -246,8 +257,12 @@ class DigiKeyboardDevice : public Print {
     else if(chr == '>') {
       sendKeyStroke(100, MOD_SHIFT_RIGHT);
     }
-	else if(chr == '|') {
-      sendKeyStroke(100, MOD_ALT_RIGHT);
+	  else if(chr == '|') {
+      if(LANG_SWITCH == 6){ // for latam keyboard
+        sendKeyStroke(0x35);
+      }else{
+        sendKeyStroke(100, MOD_ALT_RIGHT); // default en_us
+      }      
     }
     else
     {
