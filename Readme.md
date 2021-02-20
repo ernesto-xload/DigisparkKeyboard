@@ -11,6 +11,8 @@ Modified by Ernesto Sanchez to support multiple keyboard layouts
 
 Modified by Mümin Köykıran to support Turkish keyboard layouts 
 
+Modified by Carlos Gutierrez to support Latin American keyboard layout
+
 Supported layouts:
 * tr_tr
 * be_be
@@ -19,6 +21,7 @@ Supported layouts:
 * de_de
 * en_us (default)
 * es_es
+* es_la
 * fi_fi
 * fr_fr
 * it_it
@@ -26,6 +29,8 @@ Supported layouts:
 
 __NOTE1:__ Only en_us and es_es are tested at july 2017.
 __NOTE2:__ tr_tr tested at March 2018. The result is perfect.
+__NOTE2:__ es_la tested at February 2021. Perfect
+
 
 Download and installation
 =========================
@@ -51,6 +56,7 @@ You can use:
 * kbd_de_de
 * kbd_en_us
 * kbd_es_es
+* kdb_es_la
 * kbd_fi_fi
 * kbd_fr_fr
 * kbd_it_it
@@ -78,3 +84,6 @@ Open an issue, ask me on twitter to [@ernesto_xload](http://www.twitter.com/erne
 
 Turkish implemented and tested by:
 [@MrKoykiran](https://twitter.com/MrKoykiran/) or visit www.muminkoykiran.com
+
+Latin American implemented and tested by:
+[@byt3_me](https://twitter.com/byt3_me)
