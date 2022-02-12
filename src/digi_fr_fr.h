@@ -9,14 +9,6 @@
 #define ALTGR 0x40
 
 const unsigned char ascii_to_scan_code_table[] PROGMEM = {
-   0x00,             // NUL
-   0x00,             // SOH
-   0x00,             // STX
-   0x00,             // ETX
-   0x00,             // EOT
-   0x00,             // ENQ
-   0x00,             // ACK
-   0x00,             // BEL
    0x2a,      // BS  Backspace
    0x2b,      // TAB  Tab
    0x28,      // LF  Enter
