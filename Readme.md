@@ -86,4 +86,4 @@ Turkish implemented and tested by:
 [@MrKoykiran](https://twitter.com/MrKoykiran/) or visit www.muminkoykiran.com
 
 Latin American implemented and tested by:
-[@byt3_me](https://twitter.com/byt3_me)
+[@gtzsec](https://twitter.com/gtzsec)
